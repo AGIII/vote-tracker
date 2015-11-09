@@ -1,0 +1,50 @@
+body {
+font-family: 'Arvo', serif;
+font-family: 'Shadows Into Light', cursive;
+width: 90%;
+margin: 0 auto;
+}
+
+#content {
+overflow: auto;
+}
+
+#nav, #feature, #footer {
+margin: 1%;
+}
+
+.column1 {
+width: 49%;
+float: left;
+margin: .5%;
+background-color: yellow;
+}
+
+.column2 {
+  float: right;
+  width: 49%;
+  margin: .5%;
+  background-color: purple;
+}
+
+li {
+  display: inline;
+  padding: 1em;
+}
+
+#nav, #footer {
+  background-color: green;
+  padding: 0.5em 0;
+}
+
+#feature {
+  height: 16em;
+  margin: 1%;
+  background-color: blue;
+  clear: both;
+}
+
+#header {
+  background-color: red;
+}
+
