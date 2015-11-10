@@ -9,7 +9,7 @@ margin: 0 auto;
 overflow: auto;
 }
 
-#nav, #feature, #footer {
+#feature, #footer {
 margin: 1%;
 }
 
@@ -18,6 +18,7 @@ width: 49%;
 float: left;
 margin: .5%;
 background-color: yellow;
+text-align: center;
 }
 
 .column2 {
@@ -25,6 +26,7 @@ background-color: yellow;
   width: 49%;
   margin: .5%;
   background-color: purple;
+  text-align: center;
 }
 
 li {
@@ -32,9 +34,11 @@ li {
   padding: 1em;
 }
 
-#nav, #footer {
+#footer {
   background-color: green;
   padding: 0.5em 0;
+  text-align: center;
+  color: yellow;
 }
 
 #feature {
@@ -42,9 +46,32 @@ li {
   margin: 1%;
   background-color: blue;
   clear: both;
+  color: yellow;
 }
 
 #header {
   background-color: red;
+  text-align: center;
 }
+
+#header ul {
+  text-align: right;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: yellow;
+  color:red;
+}
+
+img:hover {
+  opacity: 0.75;
+}
+
+
+
+
 
