@@ -39,9 +39,9 @@ var imageRight = document.getElementById('imageRight');
     console.log(imgRight);
   } while (imgLeft === imgRight);
 
+imageLeft.src = cars[imgLeft].photo;
+imageRight.src = cars[imgRight].photo;
 
-
-
-}
+};
 compareImages();
 
