@@ -1,14 +1,15 @@
 var cars = [];
 
-var CarVoteTracker =function(name, photo) {
+var CarVoteTracker =function(name, photo, color) {
   this.name = name;
   this.photo = photo;
+  this.color = color;
   this.votes= 0;
   cars.push(this);
 }
 
-var img1 = new CarVoteTracker('img1', 'images/1.jpg');
-var img2 = new CarVoteTracker('img2', 'images/2.jpg');
+var img1 = new CarVoteTracker('img1', 'images/1.jpg', '#123456');
+var img2 = new CarVoteTracker('img2', 'images/2.jpg', '#234567');
 var img3 = new CarVoteTracker('img3', 'images/3.jpg');
 var img4 = new CarVoteTracker('img4', 'images/4.jpg');
 var img5 = new CarVoteTracker('img5', 'images/5.jpg');
@@ -25,18 +26,18 @@ randomImage = function() {
   return Math.floor(Math.random() * cars.length);
 };
 
-
+var imgLeft,imgRight;
 
 compareImages = function() {
   //Link to HTML/DOM Setup
 var imageLeft = document.getElementById('imageLeft');
 var imageRight = document.getElementById('imageRight');
 
-  var imgLeft = randomImage();
+  imgLeft = randomImage();
   console.log(imgLeft);
   do {
-    var imgRight = randomImage();
-    console.log(imgRight);
+  imgRight = randomImage();
+  console.log(imgRight);
   } while (imgLeft === imgRight);
 
 imageLeft.src = cars[imgLeft].photo;
@@ -45,24 +46,81 @@ imageRight.src = cars[imgRight].photo;
 };
 compareImages();
 
-var data = [
-    {
-        value: 300,
-        color:"#F7464A",
-        highlight: "#FF5A5E",
-        label: "Red"
-    },
-    {
-        value: 50,
-        color: "#46BFBD",
-        highlight: "#5AD3D1",
-        label: "Green"
-    },
-    {
-        value: 100,
-        color: "#FDB45C",
-        highlight: "#FFC870",
-        label: "Yellow"
+var voteFor = function(CarVoteTracker) {
+  for (var i in cars) {
+    if(cars[i].src === cars) {
+      cars.votes +=1;
+      console.log(cars.votes);
     }
-]
+  }
+};
+
+function makeChart() {
+  // var data = [
+  //   {
+  //       value: cars[imgLeft].votes,
+  //       // value: 1,
+  //       color:"#F7464A",
+  //       highlight: "#FF5A5E",
+  //       label: "Red"
+  //   },
+  //   {
+  //       value: cars[imgRight].votes,
+  //       // value: 1,
+  //       color: "#46BFBD",
+  //       highlight: "#5AD3D1",
+  //       label: "Green"
+  //   }
+  // ];
+  var data = [];
+  for (var i = 0; i < cars.length; i++) {
+    data.push({
+      value: cars[i].votes,
+      label: cars[i].name,
+      color: cars[i].color
+    })
+  }
+
+  var context = document.getElementById('chartchart').getContext('2d');
+  console.log(context);
+
+  var skillsChart = new Chart(context).Doughnut(data, {
+    //Number - Amount of animation steps
+    animationSteps : 1,
+    //String - Animation easing effect
+    animationEasing : "easeOutBounce",
+    //Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate : false,
+    //Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale : true,
+    scaleShowLabelBackdrop : true
+  });
+}
+
+makeChart();
+
+imageLeft.addEventListener('click', function() {
+  console.log(cars[imgLeft].photo);
+  cars[imgLeft].votes += 1;
+  console.log(cars[imgLeft].name + ' has ' + cars[imgRight].votes + ' votes.');
+  voteFor(imgLeft.src);
+  compareImages();
+  makeChart();
+
+
+});
+
+
+
+imageRight.addEventListener('click', function() {
+ console.log(cars[imgRight].photo);
+ cars[imgRight].votes += 1;
+ console.log(cars[imgRight].name + ' has ' + cars[imgRight].votes + ' votes.');
+ voteFor(imgRight.src);
+ compareImages();
+ makeChart();
+
+
+});
+
 
