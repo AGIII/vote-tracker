@@ -8,18 +8,18 @@ var CarVoteTracker =function(name, photo, color) {
   cars.push(this);
 }
 
-var img1 = new CarVoteTracker('img1', 'images/1.jpg', 'red');
-var img2 = new CarVoteTracker('img2', 'images/2.jpg', 'green');
-var img3 = new CarVoteTracker('img3', 'images/3.jpg', 'blue');
-var img4 = new CarVoteTracker('img4', 'images/4.jpg', 'orange');
-var img5 = new CarVoteTracker('img5', 'images/5.jpg', 'yellow');
-var img6 = new CarVoteTracker('img6', 'images/6.jpg', 'pink');
-var img7 = new CarVoteTracker('img7', 'images/7.jpg', 'purple');
-var img8 = new CarVoteTracker('img8', 'images/8.jpg', 'gray');
-var img9 = new CarVoteTracker('img9', 'images/9.jpg', 'black');
-var img10 = new CarVoteTracker('img10', 'images/10.jpg', 'brown' );
-var img11 = new CarVoteTracker('img11', 'images/11.jpg', 'white');
-var img12 = new CarVoteTracker('img12', 'images/12.jpg', 'turquoise');
+var img1 = new CarVoteTracker('Pagani Huayra', 'images/1.jpg', 'red');
+var img2 = new CarVoteTracker('Ferrari LaFerrari', 'images/2.jpg', 'green');
+var img3 = new CarVoteTracker('Ferrari 488', 'images/3.jpg', 'blue');
+var img4 = new CarVoteTracker('McLaren F1', 'images/4.jpg', 'orange');
+var img5 = new CarVoteTracker('McLaren P1', 'images/5.jpg', 'yellow');
+var img6 = new CarVoteTracker('Mercedes SLR', 'images/6.jpg', 'pink');
+var img7 = new CarVoteTracker('Lamborghini Miura SV', 'images/7.jpg', 'purple');
+var img8 = new CarVoteTracker('Ferrari 288 GTO', 'images/8.jpg', 'gray');
+var img9 = new CarVoteTracker('Ferrari F50', 'images/9.jpg', 'black');
+var img10 = new CarVoteTracker('Ferrari F40', 'images/10.jpg', 'brown' );
+var img11 = new CarVoteTracker('Lamborghini Aventador', 'images/11.jpg', 'white');
+var img12 = new CarVoteTracker('Lamborghini Diablo GT', 'images/12.jpg', 'turquoise');
 
 //Random Image Selector Function
 randomImage = function() {
@@ -115,6 +115,7 @@ makeChart();
 // };
 
 imageLeft.addEventListener('click', function() {
+  imageLeft.style.border = '10px groove #7FFFD4';
   console.log(cars[imgLeft].photo);
   cars[imgLeft].votes += 1;
   console.log(cars[imgLeft].name + ' has ' + cars[imgRight].votes + ' votes.');
@@ -128,7 +129,7 @@ imageLeft.addEventListener('click', function() {
 
 
 imageRight.addEventListener('click', function() {
-  imageRight.style.border = '1px solid red';
+ imageRight.style.border = '10px groove #FF6EB4';
  console.log(cars[imgRight].photo);
  cars[imgRight].votes += 1;
  console.log(cars[imgRight].name + ' has ' + cars[imgRight].votes + ' votes.');
