@@ -42,11 +42,12 @@ li {
 }
 
 #feature {
-  height: 16em;
+  height: 20em;
   margin: 1%;
   background-color: blue;
   clear: both;
   color: yellow;
+  text-align: center;
 }
 
 #header {
@@ -71,6 +72,10 @@ img:hover {
   opacity: 0.75;
 }
 
+#chartchart {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
 
 
 
