@@ -64,22 +64,6 @@ var voteFor = function(CarVoteTracker) {
 };
 
 function makeChart() {
-  // var data = [
-  //   {
-  //       value: cars[imgLeft].votes,
-  //       // value: 1,
-  //       color:"#F7464A",
-  //       highlight: "#FF5A5E",
-  //       label: "Red"
-  //   },
-  //   {
-  //       value: cars[imgRight].votes,
-  //       // value: 1,
-  //       color: "#46BFBD",
-  //       highlight: "#5AD3D1",
-  //       label: "Green"
-  //   }
-  // ];
   var data = [];
   for (var i = 0; i < cars.length; i++) {
     data.push({
@@ -107,16 +91,6 @@ function makeChart() {
 
 makeChart();
 
-// var jsonVote1 = function() {
-//   localStorage.setItem('jsonVote1', JSON.stringify('cars'));
-// };
-
-// var getStg = function() {
-//   var storedVote1 = localStorage.getItem('jsonVote1');
-//   console.log(storedVote1);
-//   cars = JSON.parse(storedVote1)
-// };
-
 imageLeft.addEventListener('click', function() {
   imageLeft.style.border = '10px groove #7FFFD4';
   imageRight.style.border = '';
@@ -127,11 +101,7 @@ imageLeft.addEventListener('click', function() {
   compareImages();
   makeChart();
   localStorage.setItem('cars', JSON.stringify(cars));
-  // jsonVote1():
-  // getStg();
 });
-
-
 
 imageRight.addEventListener('click', function() {
  imageRight.style.border = '10px groove #FF6EB4';
@@ -143,21 +113,7 @@ imageRight.addEventListener('click', function() {
  compareImages();
  makeChart();
  localStorage.setItem('cars', JSON.stringify(cars));
-
- // jsonVote1();
- // getStg();
 });
-
-// if (localStorage.getItem('cars') {
-//   compareImages();
-//   retrieveData();
-//   makechart();
-// } else {
-//   starTrekTotalVotes = 0;
-//   starWarsTotalVotes = 0;
-//   storeData();
-//   makechart();
-// };
 
 
 
