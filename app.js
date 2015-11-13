@@ -4,7 +4,7 @@ if (localStorage.cars) {
   var cars = [];
   var img1 = new CarVoteTracker('Pagani Huayra', 'images/1.jpg', 'red');
   var img2 = new CarVoteTracker('Ferrari LaFerrari', 'images/2.jpg', 'green');
-  var img3 = new CarVoteTracker('Ferrari 488', 'images/3.jpg', 'blue');
+  var img3 = new CarVoteTracker('Ferrari 488', 'images/3.jpg', '#AA6C39');
   var img4 = new CarVoteTracker('McLaren F1', 'images/4.jpg', 'orange');
   var img5 = new CarVoteTracker('McLaren P1', 'images/5.jpg', 'yellow');
   var img6 = new CarVoteTracker('Mercedes SLR', 'images/6.jpg', 'pink');

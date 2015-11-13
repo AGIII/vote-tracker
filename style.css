@@ -9,9 +9,8 @@
 }
 
 #blue {
-  color: blue;
+  color: #AA6C39;
   font-weight: bold;
-  background-color: yellow;
 }
 
 #orange {
@@ -68,7 +67,7 @@ margin: 1%;
   width: 49%;
   float: left;
   margin: .5%;
-  background-color: yellow;
+  background-color: orange;
   text-align: center;
   vertical-align: text-top;
   min-height: 275px;
