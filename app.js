@@ -1,25 +1,28 @@
-var cars = [];
+if (localStorage.cars) {
+  var cars = JSON.parse(localStorage.cars);
+} else {
+  var cars = [];
+  var img1 = new CarVoteTracker('Pagani Huayra', 'images/1.jpg', 'red');
+  var img2 = new CarVoteTracker('Ferrari LaFerrari', 'images/2.jpg', 'green');
+  var img3 = new CarVoteTracker('Ferrari 488', 'images/3.jpg', 'blue');
+  var img4 = new CarVoteTracker('McLaren F1', 'images/4.jpg', 'orange');
+  var img5 = new CarVoteTracker('McLaren P1', 'images/5.jpg', 'yellow');
+  var img6 = new CarVoteTracker('Mercedes SLR', 'images/6.jpg', 'pink');
+  var img7 = new CarVoteTracker('Lamborghini Miura SV', 'images/7.jpg', 'purple');
+  var img8 = new CarVoteTracker('Ferrari 288 GTO', 'images/8.jpg', 'gray');
+  var img9 = new CarVoteTracker('Ferrari F50', 'images/9.jpg', 'black');
+  var img10 = new CarVoteTracker('Ferrari F40', 'images/10.jpg', 'brown' );
+  var img11 = new CarVoteTracker('Lamborghini Aventador', 'images/11.jpg', 'white');
+  var img12 = new CarVoteTracker('Lamborghini Diablo GT', 'images/12.jpg', 'turquoise');
+}
 
-var CarVoteTracker =function(name, photo, color) {
+function CarVoteTracker (name, photo, color) {
   this.name = name;
   this.photo = photo;
   this.color = color;
   this.votes= 0;
   cars.push(this);
 }
-
-var img1 = new CarVoteTracker('Pagani Huayra', 'images/1.jpg', 'red');
-var img2 = new CarVoteTracker('Ferrari LaFerrari', 'images/2.jpg', 'green');
-var img3 = new CarVoteTracker('Ferrari 488', 'images/3.jpg', 'blue');
-var img4 = new CarVoteTracker('McLaren F1', 'images/4.jpg', 'orange');
-var img5 = new CarVoteTracker('McLaren P1', 'images/5.jpg', 'yellow');
-var img6 = new CarVoteTracker('Mercedes SLR', 'images/6.jpg', 'pink');
-var img7 = new CarVoteTracker('Lamborghini Miura SV', 'images/7.jpg', 'purple');
-var img8 = new CarVoteTracker('Ferrari 288 GTO', 'images/8.jpg', 'gray');
-var img9 = new CarVoteTracker('Ferrari F50', 'images/9.jpg', 'black');
-var img10 = new CarVoteTracker('Ferrari F40', 'images/10.jpg', 'brown' );
-var img11 = new CarVoteTracker('Lamborghini Aventador', 'images/11.jpg', 'white');
-var img12 = new CarVoteTracker('Lamborghini Diablo GT', 'images/12.jpg', 'turquoise');
 
 //Random Image Selector Function
 randomImage = function() {
@@ -116,12 +119,14 @@ makeChart();
 
 imageLeft.addEventListener('click', function() {
   imageLeft.style.border = '10px groove #7FFFD4';
+  imageRight.style.border = '';
   console.log(cars[imgLeft].photo);
   cars[imgLeft].votes += 1;
   console.log(cars[imgLeft].name + ' has ' + cars[imgRight].votes + ' votes.');
   voteFor(imgLeft.src);
   compareImages();
   makeChart();
+  localStorage.setItem('cars', JSON.stringify(cars));
   // jsonVote1():
   // getStg();
 });
@@ -130,12 +135,14 @@ imageLeft.addEventListener('click', function() {
 
 imageRight.addEventListener('click', function() {
  imageRight.style.border = '10px groove #FF6EB4';
+ imageLeft.style.border = '';
  console.log(cars[imgRight].photo);
  cars[imgRight].votes += 1;
  console.log(cars[imgRight].name + ' has ' + cars[imgRight].votes + ' votes.');
  voteFor(imgRight.src);
  compareImages();
  makeChart();
+ localStorage.setItem('cars', JSON.stringify(cars));
 
  // jsonVote1();
  // getStg();
@@ -151,5 +158,6 @@ imageRight.addEventListener('click', function() {
 //   storeData();
 //   makechart();
 // };
+
 
 

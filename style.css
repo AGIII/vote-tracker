@@ -1,3 +1,54 @@
+#red {
+  color: red;
+  font-weight: bold;
+}
+
+#green {
+  color: green;
+  font-weight: bold;
+}
+
+#blue {
+  color: blue;
+  font-weight: bold;
+  background-color: yellow;
+}
+
+#orange {
+  color: orange;
+  font-weight: bold;
+}
+
+#yellow {
+  color: yellow;
+  font-weight: bold;
+}
+
+#pink {
+  color: pink;
+  font-weight: bold;
+}
+
+#gray {
+  color:gray;
+  font-weight: bold;
+}
+
+#brown {
+  color: brown;
+  font-weight: bold;
+}
+
+#white {
+  color:white;
+  font-weight: bold;
+}
+
+#turquoise {
+  color:turquoise;
+  font-weight: bold;
+}
+
 body {
 font-family: 'Arvo', serif;
 font-family: 'Shadows Into Light', cursive;
@@ -14,13 +65,13 @@ margin: 1%;
 }
 
 .column1 {
-width: 49%;
-float: left;
-margin: .5%;
-background-color: yellow;
-text-align: center;
-vertical-align: text-top;
-min-height: 275px;
+  width: 49%;
+  float: left;
+  margin: .5%;
+  background-color: yellow;
+  text-align: center;
+  vertical-align: text-top;
+  min-height: 275px;
 }
 
 .column2 {
@@ -46,7 +97,7 @@ li {
 }
 
 #feature {
-  height: 20em;
+  height: 30em;
   margin: 1%;
   background-color: blue;
   clear: both;
