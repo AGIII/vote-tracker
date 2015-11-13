@@ -1,47 +1,119 @@
-var cars = [];
+if (localStorage.cars) {
+  var cars = JSON.parse(localStorage.cars);
+} else {
+  var cars = [];
+  var img1 = new CarVoteTracker('Pagani Huayra', 'images/1.jpg', 'red');
+  var img2 = new CarVoteTracker('Ferrari LaFerrari', 'images/2.jpg', 'green');
+  var img3 = new CarVoteTracker('Ferrari 488', 'images/3.jpg', '#AA6C39');
+  var img4 = new CarVoteTracker('McLaren F1', 'images/4.jpg', 'orange');
+  var img5 = new CarVoteTracker('McLaren P1', 'images/5.jpg', 'yellow');
+  var img6 = new CarVoteTracker('Mercedes SLR', 'images/6.jpg', 'pink');
+  var img7 = new CarVoteTracker('Lamborghini Miura SV', 'images/7.jpg', 'purple');
+  var img8 = new CarVoteTracker('Ferrari 288 GTO', 'images/8.jpg', 'gray');
+  var img9 = new CarVoteTracker('Ferrari F50', 'images/9.jpg', 'black');
+  var img10 = new CarVoteTracker('Ferrari F40', 'images/10.jpg', 'brown' );
+  var img11 = new CarVoteTracker('Lamborghini Aventador', 'images/11.jpg', 'white');
+  var img12 = new CarVoteTracker('Lamborghini Diablo GT', 'images/12.jpg', 'turquoise');
+}
 
-var CarVoteTracker =function(name, photo) {
+function CarVoteTracker (name, photo, color) {
   this.name = name;
   this.photo = photo;
+  this.color = color;
   this.votes= 0;
   cars.push(this);
 }
-
-var img1 = new CarVoteTracker('img1', 'images/1.jpg');
-var img2 = new CarVoteTracker('img2', 'images/2.jpg');
-var img3 = new CarVoteTracker('img3', 'images/3.jpg');
-var img4 = new CarVoteTracker('img4', 'images/4.jpg');
-var img5 = new CarVoteTracker('img5', 'images/5.jpg');
-var img6 = new CarVoteTracker('img6', 'images/6.jpg');
-var img7 = new CarVoteTracker('img7', 'images/7.jpg');
-var img8 = new CarVoteTracker('img8', 'images/8.jpg');
-var img9 = new CarVoteTracker('img9', 'images/9.jpg');
-var img10 = new CarVoteTracker('img10', 'images/10.jpg');
-var img11 = new CarVoteTracker('img11', 'images/11.jpg');
-var img12 = new CarVoteTracker('img12', 'images/12.jpg');
 
 //Random Image Selector Function
 randomImage = function() {
   return Math.floor(Math.random() * cars.length);
 };
 
-
+var imgLeft,imgRight;
 
 compareImages = function() {
   //Link to HTML/DOM Setup
 var imageLeft = document.getElementById('imageLeft');
+var carOne = document.getElementById('carOne');
 var imageRight = document.getElementById('imageRight');
+var carTwo = document.getElementById('carTwo');
 
-  var imgLeft = randomImage();
+  imgLeft = randomImage();
   console.log(imgLeft);
   do {
-    var imgRight = randomImage();
-    console.log(imgRight);
+  imgRight = randomImage();
+  console.log(imgRight);
   } while (imgLeft === imgRight);
 
 imageLeft.src = cars[imgLeft].photo;
+carOne.innerHTML = cars[imgLeft].name;
 imageRight.src = cars[imgRight].photo;
+carTwo.innerHTML = cars[imgRight].name;
+
 
 };
 compareImages();
+
+var voteFor = function(CarVoteTracker) {
+  for (var i in cars) {
+    if(cars[i].src === cars) {
+      cars.votes +=1;
+      console.log(cars.votes);
+    }
+  }
+};
+
+function makeChart() {
+  var data = [];
+  for (var i = 0; i < cars.length; i++) {
+    data.push({
+      value: cars[i].votes,
+      label: cars[i].name,
+      color: cars[i].color
+    })
+  }
+
+  var context = document.getElementById('chartchart').getContext('2d');
+  console.log(context);
+
+  var skillsChart = new Chart(context).Doughnut(data, {
+    //Number - Amount of animation steps
+    animationSteps : 1,
+    //String - Animation easing effect
+    animationEasing : "easeOutBounce",
+    //Boolean - Whether we animate the rotation of the Doughnut
+    animateRotate : true,
+    //Boolean - Whether we animate scaling the Doughnut from the centre
+    animateScale : true,
+    scaleShowLabelBackdrop : true
+  });
+}
+
+makeChart();
+
+imageLeft.addEventListener('click', function() {
+  imageLeft.style.border = '10px groove #7FFFD4';
+  imageRight.style.border = '';
+  console.log(cars[imgLeft].photo);
+  cars[imgLeft].votes += 1;
+  console.log(cars[imgLeft].name + ' has ' + cars[imgRight].votes + ' votes.');
+  voteFor(imgLeft.src);
+  compareImages();
+  makeChart();
+  localStorage.setItem('cars', JSON.stringify(cars));
+});
+
+imageRight.addEventListener('click', function() {
+ imageRight.style.border = '10px groove #FF6EB4';
+ imageLeft.style.border = '';
+ console.log(cars[imgRight].photo);
+ cars[imgRight].votes += 1;
+ console.log(cars[imgRight].name + ' has ' + cars[imgRight].votes + ' votes.');
+ voteFor(imgRight.src);
+ compareImages();
+ makeChart();
+ localStorage.setItem('cars', JSON.stringify(cars));
+});
+
+
 

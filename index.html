@@ -6,35 +6,56 @@
   <title>Car Vote Tracker</title>
   <link rel="stylesheet" href="style.css" type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+  <script src='chart.js' type='text/javascript'></script>
 </head>
 <body>
 <div id='header'>
 <h1>Car Vote Tracker</h1>
   <ul>
-    <li><a href='google.com'>Home</a></li>
-    <li><a href='google.com'>Search</a></li>
-    <li><a href='google.com'>Links</a></li>
-    <li><a href='google.com'>About</a></li>
-    <li><a href='google.com'>Contact</a></li>
+    <li><a href='https://google.com/'>Home</a></li>
+    <li><a href='https://google.com/'>Search</a></li>
+    <li><a href='https://google.com/'>Links</a></li>
+    <li><a href='https://google.com/'>About</a></li>
+    <li><a href="mailto:someone@example.com?Subject=Cars" target="_top">Contact</a></li>
   </ul>
 </div>
 </div>
 <div id='content'>
   <div class='column1'>
-  <h2>Car One</h2>
-  <img id='imageLeft'>
+  <h2 id='carOne'></h2>
+  <img id='imageLeft' class='center'>
   </div>
   <div class='column2'>
-  <h2>Car Two</h2>
-  <img id='imageRight'>
+  <h2 id='carTwo'></h2>
+  <img id='imageRight' class='center'>
   </div>
   <div id='feature'>
-  <p>FEATURE</p>
+  <p>VOTES</p>
+  <canvas id='chartchart' width='230' height='230'></canvas>
+  <div>
+   <ul>
+    <li id='red'>Pagani Huayra</li>
+    <li id='green'>Ferrari LaFerrari</li>
+    <li id='blue'>Ferrari 488</li>
+    <li id='orange'>McLaren F1</li>
+    <li id='yellow'>McLaren P1</li>
+    <li id='pink'>Mercedes SLR</li>
+   </ul>
+  </div>
+  <div>
+    <ul>
+    <li id='purple'>Lamborghini Miura SV</li>
+    <li id='gray'>Ferrari 288 GTO</li>
+    <li id='black'>Ferrari F50</li>
+    <li id='brown'>Ferrari F40</li>
+    <li id='white'>Lamborghini Aventador</li>
+    <li id='turquoise'>Lamborghini Diablo GT</li>
+    </ul>
   </div>
 </div>
 <div id='footer'>
 <p>&copy; Copyright 2015</p>
 </div>
-<script src='app.js'></script>
+<script src='app.js'> type='text/javascript' </script>
 </body>
 </html>
